@@ -78,5 +78,22 @@ def view_source_code():
 def about():
     return render_template('about.html')
 
+@app.route('/verified', methods=['GET', 'POST'])
+def verified():
+    # Assuming 'output' is a variable containing the data you want to pass to the template
+    # output = {
+    #     'google_verified': 'Some value for Google Verified',
+    #     'platform_type': 'Some value for Platform Type',
+    #     'rank': 'Some value for Rank',
+    #     'response_status': 'Some value for Response Status',
+    #     'is_url_shortened': 'Some value for URL Shortened',
+    #     'ip': 'Some value for IP',
+    #     'trust_score': 90,
+    #     'msg': 'Verification successful',
+        
+    # }
+    return render_template('verified.html')
+
+
 if __name__ == '__main__':
     app.run(host= '0.0.0.0',debug=True)
