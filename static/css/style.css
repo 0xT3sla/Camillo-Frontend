@@ -263,6 +263,18 @@ form {
     margin-bottom: -55px;
 }
 
+.urls{
+    padding: 10px;
+    border: solid;
+    border-radius: 20px;
+    color: rgb(153,255,255);
+    background-color: rgb(39,60,65);
+    margin-left:20px;
+    margin-top: -40px;
+    max-width: 700px;
+    text-align: center;
+}
+
 .bars{
     display: flex;
     flex-direction: row;
@@ -327,7 +339,8 @@ output {
     height: auto;
     padding-bottom: 4rem;
     position: relative;
-    margin: auto;
+    /* margin: auto; */
+    
     
     
 }
