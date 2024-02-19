@@ -14,7 +14,7 @@
     <div class="nav-bar">
         <img class="nav-logo" src="static\logo\3x\Asset 1@2x.png" >
         <ul>
-        <li><a href="#home" >Home</a></li>
+        <li><a href="/index" >Home</a></li>
         <li><a href="/about">About</a></li>    
         <ul>
     </div>    
@@ -23,8 +23,8 @@
             <img src="static\logo\3x\Asset 2@3x.png" alt="logo" width="220px" >
         </div><br>
         
-        <form action="/" method="post" class="searchbar">
-              <input  type="text" name="url" placeholder="Example url: https://example.org/" required="required" />
+        <form action="/" method="post" class="searchbar" >
+              <input  id="urlInput" type="text" name="url" placeholder="Example url: https://example.org/" required="required" />
               <button type="submit" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></button>
         </form>
 
@@ -36,12 +36,19 @@
         <div class="result">
 
             {% if output.status == "SUCCESS" %}
-            <p class="trust"> Trust Score </p>
+            <p class="trust"> Trust Score </p><p class="Model"> Model Score </p>
+            <div class="bars">
             <div class="progress-bar">
                 <div class="circular-progress">
                     <span class="progress-value">{{output.trust_score}}</span>
                 </div>
             </div>
+            <div class="progress-bar-1">
+                <div class="circular-progress-1">
+                    <span class="progress-value-1">{{output.trust_score}}</span>
+                </div>
+            </div>
+        </div>
 
             <script >
                 document.addEventListener("DOMContentLoaded", function () {
@@ -74,6 +81,38 @@
                     }, speed);
                 });
                 </script>
+                <script >
+                    document.addEventListener("DOMContentLoaded", function () {
+                        let circularProgress = document.querySelector(".circular-progress-1"),
+                            progressValue = document.querySelector(".progress-value-1");
+                
+                        let progressStartValue = 0,
+                            progressEndValue = parseInt("{{output.model_score}}"), // Parse the trust score as an integer
+                            speed = 35;
+                
+                        let progress = setInterval(() => {
+                            progressStartValue++;
+                
+                            progressValue.textContent = `${progressStartValue}%`;
+                
+                            // Set color based on trust score ranges
+                            if (progressStartValue >= 0 && progressStartValue < 60) {
+                                circularProgress.style.background = `conic-gradient(green ${progressStartValue * 3.6}deg, #ededed 0deg)`;
+                            } else if (progressStartValue >= 60 && progressStartValue < 70) {
+                                circularProgress.style.background = `conic-gradient(yellowgreen ${progressStartValue * 3.6}deg, #ededed 0deg)`;
+                            } else if (progressStartValue >= 70 && progressStartValue < 90) {
+                                circularProgress.style.background = `conic-gradient(orange ${progressStartValue * 3.6}deg, #ededed 0deg)`;
+                            } else {
+                                circularProgress.style.background = `conic-gradient( red${progressStartValue * 3.6}deg, #ededed 0deg)`;
+                            }
+                
+                            if (progressStartValue >= progressEndValue) { // Fix the condition for comparison
+                                clearInterval(progress);
+                            }
+                        }, speed);
+                    });
+                    </script>
+    
 
             
             <!-- <strong>Trust Score : {{output.trust_score}} / 100 </strong>
