@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, redirect, url_for
 import requests
 import base64
 from bs4 import BeautifulSoup
@@ -24,6 +24,14 @@ def home():
             if response.status_code == 200:
                 # Convert JSON response to dictionary
                 output = response.json()
+                # Redirect to /verified route with details
+                if output.get('google_verified') == 'yes':
+                    return redirect(url_for('verified', 
+                        google_verified=output.get('google_verified'),
+                        platform_type=output.get('platform_type'),
+                        threat_entry_type=output.get('threat_entry_type'),
+                        threat_type=output.get('threat_type')))
+                
             else:
                 output = {'status': 'ERROR', 'msg': f"Failed to analyze URL: {response.status_code} - {response.text}"}
         else:
@@ -80,19 +88,18 @@ def about():
 
 @app.route('/verified', methods=['GET', 'POST'])
 def verified():
-    # Assuming 'output' is a variable containing the data you want to pass to the template
-    # output = {
-    #     'google_verified': 'Some value for Google Verified',
-    #     'platform_type': 'Some value for Platform Type',
-    #     'rank': 'Some value for Rank',
-    #     'response_status': 'Some value for Response Status',
-    #     'is_url_shortened': 'Some value for URL Shortened',
-    #     'ip': 'Some value for IP',
-    #     'trust_score': 90,
-    #     'msg': 'Verification successful',
-        
-    # }
-    return render_template('verified.html')
+    google_verified = request.args.get('google_verified')
+    platform_type = request.args.get('platform_type')
+    threat_entry_type = request.args.get('threat_entry_type')
+    threat_type = request.args.get('threat_type')
+    verified_response = {
+        "google_verified" : google_verified,
+        "platform_type" : platform_type,
+        "threat_entry_type" : threat_entry_type,
+        "threat_type" : threat_type
+    }
+
+    return render_template('verified.html', verified_response=verified_response)
 
 
 if __name__ == '__main__':
