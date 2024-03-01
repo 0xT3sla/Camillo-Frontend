@@ -30,26 +30,36 @@
         
 
 
-        <div class="container">
+       
         {% if output != "NA" %}
         <span class="urls"><b>Showing results for</b>:{{output.url}}</span>
         <div class="result">
             {% if output.status == "SUCCESS" %}
             <br><br>
-            <p class="trust"> Trust Score </p><p class="Model"> Model Score </p>
+            <p class="final"> Final Outcome </p><p class="trust"> Trust Score </p><p class="Model"> Model Score </p>
             <div class="bars">
-            <div class="progress-bar">
-                <div class="circular-progress">
-                    <span class="progress-value">{{output.trust_score}}</span>
+                <div class="final-verdict" id="finalVerdict" style="{% if output.final_verdict == False %} background: linear-gradient(to top, #4CAF50 0%, #2E7D32 100%); {% else %} background: linear-gradient(to top, #f4436f 0%, #ad2525 100%); {% endif %}">
+                    {% if output.final_verdict == False %}
+                         Safe site!
+                    {% else %}
+                          Looks like phishing site!! Be cautious when visiting
+                     {% endif %}
+                </div>
+            <div class="progress-bar" title="This is trust score ">
+                <div class="circular-progress" >
+                    <span class="progress-value" >{{output.trust_score}}</span>
                 </div>
             </div>
-            <div class="progress-bar-1">
+            <div class="progress-bar-1" title="This is model score">
                 <div class="circular-progress-1">
-                    <span class="progress-value-1">{{output.trust_score}}</span>
+                    <span class="progress-value-1">{{output.model_score}}</span>
                 </div>
             </div>
         </div>
 
+       
+           
+        
             <script >
                 document.addEventListener("DOMContentLoaded", function () {
                     let circularProgress = document.querySelector(".circular-progress"),
@@ -81,7 +91,7 @@
                     }, speed);
                 });
                 </script>
-                <script >
+                <script>
                     document.addEventListener("DOMContentLoaded", function () {
                         let circularProgress = document.querySelector(".circular-progress-1"),
                             progressValue = document.querySelector(".progress-value-1");
@@ -103,7 +113,7 @@
                             } else if (progressStartValue >= 50 && progressStartValue < 70) {
                                 circularProgress.style.background = `conic-gradient(orange ${progressStartValue * 3.6}deg, #ededed 0deg)`;
                             } else {
-                                circularProgress.style.background = `conic-gradient( red${progressStartValue * 3.6}deg, #ededed 0deg)`;
+                                circularProgress.style.background = `conic-gradient(red ${progressStartValue * 3.6}deg, #ededed 0deg)`;
                             }
                 
                             if (progressStartValue >= progressEndValue) { // Fix the condition for comparison
@@ -157,6 +167,7 @@
             </form>
 
             <button class = "preview-button" onclick="document.getElementById('source-code').submit()">Show Source Code of URL</button>
+
             <br><br>(External scripts are disabled for your safety.)
 
             {% else %}
