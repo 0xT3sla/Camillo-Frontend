@@ -36,21 +36,26 @@
         <div class="result">
             {% if output.status == "SUCCESS" %}
             <br><br>
-            <p class="final"> Final Outcome </p><p class="trust"> Trust Score </p><p class="Model"> Model Score </p>
+            <p class="final"> Final Outcome </p><p class="trust"> Trust Score </p><p class="Model"> Suspicion Score </p>
             <div class="bars">
                 <div class="final-verdict" id="finalVerdict" style="{% if output.final_verdict == False %} background: linear-gradient(to top, #4CAF50 0%, #2E7D32 100%); {% else %} background: linear-gradient(to top, #f4436f 0%, #ad2525 100%); {% endif %}">
-                    {% if output.final_verdict == False %}
-                         Safe site!
-                    {% else %}
-                          Looks like phishing site!! Be cautious when visiting
-                     {% endif %}
-                </div>
-            <div class="progress-bar" title="This is trust score ">
+                      {% if output.final_verdict == False %}
+                        <p>URL seems to be safe !</p>
+                      {% else %}
+                        <p>Looks like phishing site !! Be cautious when visiting</p>
+                      {% endif %}
+                  </div>
+
+            
+            <div class="progress-bar" title="The Trust Score is calculated with Traditional methods to predict the level of trustworthiness of the URL">
                 <div class="circular-progress" >
                     <span class="progress-value" >{{output.trust_score}}</span>
+                    <p ></p>
                 </div>
             </div>
-            <div class="progress-bar-1" title="This is model score">
+        
+       
+            <div class="progress-bar-1" title="Suspicion Score uses Machine learning to predict the chances of the URL being an actual phishing site.">
                 <div class="circular-progress-1">
                     <span class="progress-value-1">{{output.model_score}}</span>
                 </div>
