@@ -28,13 +28,14 @@ Here are the links to those repos:
 ---
 
 ### Demo
-![Watch the video](https://github.com/0xT3sla/Camillo-Frontend/blob/main/static/camillo-demo.mp4)
+[![Watch the video](https://github.com/0xT3sla/Camillo-Frontend/blob/main/static/camillo-demo.jpg)](https://github.com/0xT3sla/Camillo-Frontend/blob/main/static/camillo-demo.mp4)
 
 ---
 ### Technologies Used
 
-<p>
+<p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=py,flask,js,html,css&theme=dark" />
   </a>
 </p>
+---
