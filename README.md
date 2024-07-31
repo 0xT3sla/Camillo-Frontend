@@ -33,7 +33,7 @@ Here are the links to those repos:
 ---
 ### Technologies Used
 
-<p align="center">
+<p>
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=py,flask,js,html,css&theme=dark" />
   </a>
