@@ -28,7 +28,7 @@ Here are the links to those repos:
 ---
 
 ### Demo
-![Demo](https://s4.ezgif.com/tmp/ezgif-4-4948fef774.gif)
+![Demo](https://github.com/0xT3sla/Camillo-Frontend/blob/main/static/camillo.gif)
 
 ---
 ### Technologies Used
