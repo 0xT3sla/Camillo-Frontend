@@ -5,8 +5,10 @@ Camillo Front-end (Web-app)
 <p align="center">
   <img src="https://github.com/0xT3sla/Camillo-Frontend/blob/main/static/logo/3x/Asset%201%402x.png" width=200px alt="Camillo wordmark-logo">
 </p>
+
 ---
 The Camillo project enhances URL trustworthiness assessment by merging traditional checks with deep learning algorithms. It evaluates domain reputation, SSL attributes, and other factors to generate comprehensive trust scores, using external APIs (google safe browsing API) for validation. The user-friendly interface provides clear trust scores and additional insights, such as website snapshots and source code analysis, offering a robust defense against online threats.
+
 ---
 
 ### Contributors
