@@ -28,7 +28,7 @@ Here are the links to those repos:
 ---
 
 ### Demo
-[![Watch the video](https://github.com/0xT3sla/Camillo-Frontend/blob/main/static/logo/3x/Asset%201%402x.png)](https://github.com/0xT3sla/Camillo-Frontend/blob/main/static/camillo-demo.mp4)
+![Watch the video](https://github.com/0xT3sla/Camillo-Frontend/blob/main/static/camillo-demo.mp4)
 
 ---
 ### Technologies Used
@@ -38,4 +38,3 @@ Here are the links to those repos:
     <img src="https://skillicons.dev/icons?i=py,flask,js,html,css&theme=dark" />
   </a>
 </p>
----
