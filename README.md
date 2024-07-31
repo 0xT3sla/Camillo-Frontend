@@ -1,7 +1,5 @@
-# Camillo-Frontend
-Camillo Front-end (Web-app)
+# Camillo-Frontend - web application
 
----
 <p align="center">
   <img src="https://github.com/0xT3sla/Camillo-Frontend/blob/main/static/logo/3x/Asset%201%402x.png" width=200px alt="Camillo wordmark-logo">
 </p>
