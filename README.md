@@ -23,7 +23,7 @@ Here are the links to those repos:
 
 - [Camillo API](https://github.com/0xT3sla/Camillo-API)
 - [Camillo Frontend](https://github.com/0xT3sla/Camillo-Frontend)
-- [[Camillo Browser extension](https://github.com/0xT3sla/Camillo-Ext)]
+- [Camillo Browser extension](https://github.com/0xT3sla/Camillo-Ext)
 
 ---
 
